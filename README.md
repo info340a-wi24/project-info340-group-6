@@ -5,3 +5,5 @@ This repository contains code for an interactive information web app, created fo
 Brooks Scheibler
 
 Juan Carlos Garcia
+
+Phillip Dang
