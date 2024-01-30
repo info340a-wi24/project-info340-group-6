@@ -9,3 +9,6 @@ Juan Carlos Garcia
 Phillip Dang
 
 Justin Orellana
+
+1-29-2024
+Added a project proposal html sheet, as well as the css styling for it. This will be the final commit for this proposal!
