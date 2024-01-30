@@ -16,3 +16,8 @@ body, .keySection {
   justify-content: center;
   flex-direction: column
 }
+
+em {
+  color: #800020;
+  text-shadow: 2px 2px green;
+}
