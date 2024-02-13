@@ -88,6 +88,12 @@ footer {
   border-radius: 5px;
 }
 
+.evac {
+  margin-left: 30%;
+  position: fixed;
+  margin-top: 15%;
+  border: 4px darkred solid;
+}
 
 
 .banner {
@@ -115,6 +121,26 @@ footer {
   margin-top: 1em;
 }
 
+#hamburger-menu {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 30px; /* Width of the hamburger icon */
+  height: 25px; /* Height of the hamburger icon */
+}
+
+#hamburger-menu span {
+  display: block;
+  width: 100%; /* Full width of the button */
+  height: 3px; /* Thickness of each line */
+  background-color: blanchedalmond; /* Color of the lines */
+  margin: 2px 0; /* Spacing between the lines */
+}
+
+
 .login-form {
   display: flex;
   flex-direction: column;
@@ -129,4 +155,31 @@ footer {
   padding: 2em;
   justify-content:space-between;
   gap: 0.5em;
+}
+
+.private {
+  color: transparent;
+
+}
+
+.private:hover {
+  color: black;
+}
+
+.no-float {
+  display: inline;
+  float:none;
+}
+
+#user-content {
+  display: flex;
+  margin: auto;
+  flex-direction: column;
+  padding-top: 4em;
+  margin-left: 30%;
+  justify-content: space-between;
+}
+
+#user-content section{
+  margin-top:1em;
 }
