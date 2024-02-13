@@ -106,8 +106,8 @@ footer {
   
   text-align: center;
   margin-left: 30%;
-  position: static;
   margin-top: 15%;
+  position: static;
   border: 4px darkred solid;
   color: black;
 }
