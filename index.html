@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="author" content="Brooks Scheibler, ">
+  <meta name="author" content="Brooks Scheibler, Juan Carlos Garcia">
   <meta name="description" content="Sparkspotter webpage for keeping track of fires and keeping washington residents informed.">
   <link rel="stylesheet" href="css/styles.css">
   <link rel="icon" type="image/png" href="img/fire-icon.png">
@@ -20,9 +20,16 @@
   <div class="frame">
     <nav class="nav">
       <h1>Sparkspotter</h1>
-      <button>Fire Education</button>
-      <button>About Evacuation</button>
-      <button>Fires Near You</button>
+      <button id="hamburger-menu" aria-label="Open navigation menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <div id="pages-links">
+        <button>Fire Education</button>
+        <button>About Evacuation</button>
+        <button>Fires Near You</button>
+      </div>
     </nav>
 
     <main class="posts">
