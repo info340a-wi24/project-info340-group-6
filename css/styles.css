@@ -92,11 +92,12 @@ footer {
   border-radius: 5px;
 }
 
-.evac {
+.center-box {
   margin-left: 30%;
   position: fixed;
   margin-top: 15%;
   border: 4px darkred solid;
+  color: black;
 }
 
 
