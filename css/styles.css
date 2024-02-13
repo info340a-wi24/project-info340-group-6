@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 body, html, main {
   margin: 0;
   padding: 0;
@@ -121,24 +125,6 @@ footer {
   margin-top: 1em;
 }
 
-#hamburger-menu {
-  background: none;
-  border: none;
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  width: 30px; /* Width of the hamburger icon */
-  height: 25px; /* Height of the hamburger icon */
-}
-
-#hamburger-menu span {
-  display: block;
-  width: 100%; /* Full width of the button */
-  height: 3px; /* Thickness of each line */
-  background-color: blanchedalmond; /* Color of the lines */
-  margin: 2px 0; /* Spacing between the lines */
-}
 
 
 .login-form {
@@ -182,4 +168,46 @@ footer {
 
 #user-content section{
   margin-top:1em;
+}
+
+#user-submission{
+  text-align: center;
+}
+
+@media only screen and (max-width: 598px) {
+  #hamburger-menu {
+    margin: 10px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 25px;
+  }
+  
+  #hamburger-menu span {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: blanchedalmond;
+    margin: 2px 0;
+  }
+
+  .banner h1{
+    padding-left: 4.7em;
+  }
+
+  .banner-btn{
+    display: none;
+  }
+
+  .frame h1{ 
+    display: none;
+  }
+
+  #pages-links {
+    display: none; 
+  }
 }
