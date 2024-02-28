@@ -1,16 +1,5 @@
 import React, {useState} from "react";
 
-/*
-const fs = require('fs');
-
-
-function addPost({formData}){
-  const thisJson = '../data/testData.json'
-  let newData = {source:formData.source, alt: formData.header, header: formData.header, coordinates: formData.coordinates, date: formData.date, content: formData.content}
-  newData = JSON.stringify(newData);
-  fs.appendFile(thisJson, newData);
-}
-*/
 
 function addPost({formData}){
   try {

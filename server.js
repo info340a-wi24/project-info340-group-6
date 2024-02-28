@@ -23,24 +23,6 @@ let postData = [
       "coordinates":"47° 43' 42'' Latitude-121° 20' 46'' Longitude",
       "date":"09/15/2022",
       "content":"But that's way I like it because I'll never get bored."
-  },
-
-  {
-      "source":"project-draft/img/WaWildFire.jpg",
-      "alt":"Wild fire",
-      "header":"My world is on fire, how about yours",
-      "coordinates":"47° 43' 42'' Latitude-121° 20' 46'' Longitude",
-      "date":"09/15/2022",
-      "content":"But that's the way I like it because I'll never get bored."
-  },
-
-  {
-      "source":"project-draft/img/WaWildFire.jpg",
-      "alt":"Wild fire",
-      "header":"My world is on fire, how about yours",
-      "coordinates":"47° 43' 42'' Latitude-121° 20' 46'' Longitude",
-      "date":"09/15/2022",
-      "content":"But the way I like it because I'll never get bored."
   }
 ]
 

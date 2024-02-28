@@ -4,25 +4,33 @@ import SAMPLE_POST from '../data/testData.json';
 import PostsPage from './PostsPage';
 import About from './About';
 import NavBar from './NavBar';
+import { useState, useEffect } from 'react';
 
-const apiUrl = 'http://localhost:5000/postServer/data';
-fetch(apiUrl)
-  .then(response => {
-    if (!response.ok) {
-      throw new Error(`HTTP error! Status: ${response.status}`);
-    }
-    return response.json();
-  })
-  .then(data => {
-    console.log('Data from server:', data);
-    // Handle your data here
-  })
-  .catch(error => {
-    console.error('Error fetching data:', error);
-  });
+
 
 function App() {
-  const data = SAMPLE_POST;
+  //const data = SAMPLE_POST;
+  const [data, setData] = useState(null);
+
+  async function getData(){
+    try {
+      const response = await fetch('http://localhost:5000/postServer/data');
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+
+      setData(await response.json());
+      console.log(data);
+    } catch (error) {
+      console.error('Error fetching data:', error.message);
+    }
+  }
+
+  useEffect(() => {
+    getData();
+  }, []);
+
   return (
     <div>
       <header>
@@ -35,7 +43,7 @@ function App() {
 
       <main>
         <Routes>
-          <Route index element={<PostsPage data={data} />} />
+          <Route index element={<PostsPage data={data || SAMPLE_POST} />} />
           <Route path='about' element={<About />} />
           <Route path='*' element={<Navigate to="/about" />} />
         </Routes>
