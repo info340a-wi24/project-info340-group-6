@@ -8,10 +8,6 @@ export default function PostsPage(props) {
 
     return (
         <div>
-            <div className="misson-statement">
-                <h2>Welcome to Sparkspotter</h2>
-                <p>Our mission is to empower communities by providing real-time wildfire tracking and educational resources, creating a proactive approach to wildfire prevention and safety.</p>
-            </div>
             {postArr}
         </div>
     )
