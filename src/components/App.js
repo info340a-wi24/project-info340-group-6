@@ -3,6 +3,7 @@ import {Routes, Route, Navigate, Link} from 'react-router-dom';
 import SAMPLE_POST from '../data/testData.json';
 import PostsPage from './PostsPage';
 import About from './About';
+import NavBar from './NavBar';
 
 
 function App() {
@@ -10,10 +11,7 @@ function App() {
   return (
     <div>
       <header>
-      <nav>
-          <Link to="/about">About </Link>
-          <Link to="/">Posts</Link>
-        </nav>
+        <NavBar />
         <div className="misson-statement">
             <h2>Welcome to Sparkspotter</h2>
             <p>Our mission is to empower communities by providing real-time wildfire tracking and educational resources, creating a proactive approach to wildfire prevention and safety.</p>
