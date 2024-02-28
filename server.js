@@ -1,7 +1,10 @@
 'use strict';
 const express = require('express');
 const app = express();
+app.use(express.json());
+const cors = require('cors');
 const port = process.env.PORT || 5000;
+app.use(cors());
 
 let postData = [
   {
@@ -42,8 +45,9 @@ let postData = [
 ]
 
 app.get('/postServer/data', (req, res) => {
-  res.type('json');
-  res.send(postData);
+  //res.type('json');
+  res.json(postData);
+  //res.send('Hi');
 });
 
 app.post('/postServer/addPost', function(req, res) {
@@ -51,4 +55,8 @@ app.post('/postServer/addPost', function(req, res) {
   const newPost = req.body;
   postData.push(newPost);
   res.status(201).json({ message: 'Post added successfully', postData });
+});
+
+app.listen(port, () => {
+  console.log(`Server is running on port ${port}`);
 });

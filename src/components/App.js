@@ -5,6 +5,21 @@ import PostsPage from './PostsPage';
 import About from './About';
 import NavBar from './NavBar';
 
+const apiUrl = 'http://localhost:5000/postServer/data';
+fetch(apiUrl)
+  .then(response => {
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+    return response.json();
+  })
+  .then(data => {
+    console.log('Data from server:', data);
+    // Handle your data here
+  })
+  .catch(error => {
+    console.error('Error fetching data:', error);
+  });
 
 function App() {
   const data = SAMPLE_POST;
@@ -23,7 +38,7 @@ function App() {
           <Route index element={<PostsPage data={data} />} />
           <Route path='about' element={<About />} />
           <Route path='*' element={<Navigate to="/about" />} />
-        </Routes>     
+        </Routes>
       </main>
 
       <footer>
