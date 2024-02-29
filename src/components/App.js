@@ -4,6 +4,10 @@ import SAMPLE_POST from '../data/testData.json';
 import PostsPage from './PostsPage';
 import About from './About';
 import NavBar from './NavBar';
+import Profile from './Profile';
+import FiresNearYou from './FiresNearYou';
+import Home from './Home';
+
 import { useState, useEffect } from 'react';
 
 
@@ -45,7 +49,10 @@ function App() {
         <Routes>
           <Route index element={<PostsPage data={data || SAMPLE_POST} />} />
           <Route path='about' element={<About />} />
-          <Route path='*' element={<Navigate to="/about" />} />
+          <Route path='home' element={<Home />} />
+          <Route path='profile' element={<Profile />} />
+          <Route path='firesnearyou' element={<FiresNearYou />} />
+          <Route path='*' element={<Navigate to="/Home" />} />
         </Routes>
       </main>
 
