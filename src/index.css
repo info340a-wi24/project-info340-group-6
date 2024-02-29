@@ -170,6 +170,14 @@ footer {
   float:none;
 }
 
+.mission-statement {
+  text-align: center;
+}
+
+.navbar {
+  background-color: darkred;
+}
+
 #user-content {
   display: flex;
   margin: auto;

@@ -10,6 +10,7 @@ import Home from './Home';
 
 import { useState, useEffect } from 'react';
 import {DisplayForm} from './createPost.js'
+import Evacuations from './Evacuations';
 
 
 
@@ -39,7 +40,7 @@ function App() {
     <div>
       <header>
         <NavBar />
-        <div className="misson-statement">
+        <div className="mission-statement">
             <h2>Welcome to Sparkspotter</h2>
             <p>Our mission is to empower communities by providing real-time wildfire tracking and educational resources, creating a proactive approach to wildfire prevention and safety.</p>
         </div>
@@ -57,6 +58,7 @@ function App() {
           <Route path='home' element={<Home />} />
           <Route path='profile' element={<Profile />} />
           <Route path='firesnearyou' element={<FiresNearYou />} />
+          <Route path='evacuations' element={<Evacuations />} />
           <Route path='*' element={<Navigate to="/Home" />} />
         </Routes>
       </main>
