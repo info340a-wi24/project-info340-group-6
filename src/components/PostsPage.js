@@ -18,7 +18,7 @@ function Post(props) {
 
     return (
         <div className="post">
-            <img src={fire.source} alt={fire.alt} />
+            <img src={process.env.PUBLIC_URL + fire.source} alt={fire.alt} />
             <h2>{fire.header}</h2>
             <em>{fire.date} - {fire.coordinates}</em>
             <p>{fire.content}</p>

@@ -1,22 +1,10 @@
 import React, {useState} from "react";
 
 
-function addPost({formData}){
-  try {
-    fetch('http://localhost:5000/postServer/addPost', {
-    method: 'POST',
-    body: JSON.stringify(formData),
-  });
-  } catch (err) {
-    console.log('bad');
-  }
-}
-
 
 
 export function DisplayForm(){
   const [headerText, updateHeader] = useState('');
-  const [dateText, updateDate] = useState('');
   const [contentText, updateContent] = useState('');
 
   function changeHeader(event){
@@ -27,19 +15,57 @@ export function DisplayForm(){
     updateContent(event.target.value)
   }
 
-  function formSubmit(event){
+  async function addPost(formData){
+    try {
+      await fetch('http://localhost:5000/postServer/addPost', {
+      method: 'POST',
+      body: JSON.stringify(formData),
+      headers: {
+        'Content-Type': 'application/json',
+      }
+    });
+    } catch (err) {
+      console.log('bad');
+    }
+  }
+
+  async function formSubmit(event){
+    let today = new Date().toLocaleString();
+    try {
+      await addPost({source: ".../public/img/WaWildFire.jpg", alt: headerText, header:headerText, coordinates: "will insert coords later", date:today , content: contentText});
+    } catch (err) {
+      console.log(err);
+    }
     updateHeader('');
     updateContent('');
-    updateDate(new Date());
-    addPost({source: null, alt: headerText, header:headerText, coordinates: null, date:dateText, content: contentText})
+    window.location.reload()
   }
 
   return (
-    <div>
-      Hello!
-      <input name='header' onChange={changeHeader} defaultValue={headerText}></input>
-      <input name='content' onChange = {changeContent} defaultValue={contentText}></input>
-      <button id='sendForm'onClick={formSubmit}>Submit Post</button>
-    </div>
+    <div className="post-form">
+    <label>
+      Title:
+      <input
+        type="text"
+        name="header"
+        defaultValue={headerText}
+        onChange={changeHeader}
+        placeholder="Enter title"
+      />
+    </label>
+
+    <label>
+      Details:
+      <input
+        type="text"
+        name="content"
+        defaultValue={contentText}
+        onChange={changeContent}
+        placeholder="Enter description"
+      />
+    </label>
+
+    <button id="sendForm" onClick={formSubmit}>Submit Post</button>
+  </div>
   )
 }

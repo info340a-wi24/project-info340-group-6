@@ -9,6 +9,7 @@ import FiresNearYou from './FiresNearYou';
 import Home from './Home';
 
 import { useState, useEffect } from 'react';
+import {DisplayForm} from './createPost.js'
 
 
 
@@ -25,7 +26,6 @@ function App() {
       }
 
       setData(await response.json());
-      console.log(data);
     } catch (error) {
       console.error('Error fetching data:', error.message);
     }
@@ -46,6 +46,11 @@ function App() {
       </header>
 
       <main>
+
+
+        <DisplayForm />
+
+
         <Routes>
           <Route index element={<PostsPage data={data || SAMPLE_POST} />} />
           <Route path='about' element={<About />} />
