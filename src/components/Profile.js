@@ -1,14 +1,6 @@
 import React, { useState } from "react";
 
 export default function Profile(props) {
-        let fname = ""
-        let mname = ""
-        let lname = ""
-        let phone = ""
-        let email = ""
-        let address = ""
-        let state = ""
-        let postal = ""
 
         const [formData, setFormData] = useState({
             fname: "",
