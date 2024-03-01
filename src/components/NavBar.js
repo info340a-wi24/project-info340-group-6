@@ -27,11 +27,6 @@ export default function NavBar(props) {
                         </NavLink>
                     </li>
                     <li className="nav-item active">
-                        <NavLink to="/Profile" className="nav-link text-white">
-                            Profile
-                        </NavLink>
-                    </li>
-                    <li className="nav-item active">
                         <NavLink to="/About" className="nav-link text-white">
                             About
                         </NavLink>
@@ -44,6 +39,11 @@ export default function NavBar(props) {
                     <li className="nav-item active">
                         <NavLink to="/Evacuations" className="nav-link text-white">
                             Evacuations
+                        </NavLink>
+                    </li>
+                    <li className="nav-item active">
+                        <NavLink to="/Profile" className="nav-link text-white">
+                            Profile
                         </NavLink>
                     </li>
                 </ul>
