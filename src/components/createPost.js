@@ -42,30 +42,32 @@ export function DisplayForm(){
   }
 
   return (
+  <div className="row mb-1">
     <div className="post-form">
-    <label>
-      Title:
-      <input
-        type="text"
-        name="header"
-        defaultValue={headerText}
-        onChange={changeHeader}
-        placeholder="Enter title"
-      />
-    </label>
+      <label>
+        Title:
+        <input
+          type="text"
+          name="header"
+          defaultValue={headerText}
+          onChange={changeHeader}
+          placeholder="Enter title"
+        />
+      </label>
 
-    <label>
-      Details:
-      <input
-        type="text"
-        name="content"
-        defaultValue={contentText}
-        onChange={changeContent}
-        placeholder="Enter description"
-      />
-    </label>
+      <label>
+        Details:
+        <input
+          type="text"
+          name="content"
+          defaultValue={contentText}
+          onChange={changeContent}
+          placeholder="Enter description"
+        />
+      </label>
 
-    <button id="sendForm" onClick={formSubmit}>Submit Post</button>
+      <button id="sendForm" onClick={formSubmit}>Submit Post</button>
+    </div>
   </div>
   )
 }

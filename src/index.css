@@ -103,12 +103,7 @@ footer {
 }
 
 .center-box {
-  
-  text-align: center;
-  margin-left: 30%;
-  margin-top: 15%;
-  position: static;
-  border: 4px darkred solid;
+    border: 4px darkred solid;
   color: black;
 }
 

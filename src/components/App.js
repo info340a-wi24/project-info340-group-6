@@ -6,7 +6,6 @@ import About from './About';
 import NavBar from './NavBar';
 import Profile from './Profile';
 import FiresNearYou from './FiresNearYou';
-import Home from './Home';
 
 import { useState, useEffect } from 'react';
 import {DisplayForm} from './createPost.js'
@@ -46,7 +45,7 @@ function App() {
         </div>
       </header>
 
-      <main>
+      <main className='container-fluid'>
 
 
         <DisplayForm />
@@ -55,11 +54,10 @@ function App() {
         <Routes>
           <Route index element={<PostsPage data={data || SAMPLE_POST} />} />
           <Route path='about' element={<About />} />
-          <Route path='home' element={<Home />} />
           <Route path='profile' element={<Profile />} />
           <Route path='firesnearyou' element={<FiresNearYou />} />
           <Route path='evacuations' element={<Evacuations />} />
-          <Route path='*' element={<Navigate to="/Home" />} />
+          <Route path='*' element={<Navigate to="/" />} />
         </Routes>
       </main>
 

@@ -4,7 +4,10 @@ import {NavLink} from 'react-router-dom';
 export default function NavBar(props) {
     return (
         <nav className="navbar navbar-expand-sm navbar-light">
-            <a href="#" className="navbar-brand mb-0 h1 text-white">Sparkspotter</a>
+            <NavLink to="/" className="navbar-brand mb-0 h1 text-white">
+                <img src="/favicon.ico" alt="SparkSpotter" style={{ height: '30px' }} />
+                Sparkspotter
+            </NavLink>
             <button
                 type="button"
                 data-bs-toggle="collapse"
@@ -19,7 +22,7 @@ export default function NavBar(props) {
             <div className="collapse navbar-collapse" id="navbarNav">
                 <ul className="navbar-nav">
                     <li className="nav-item active">
-                        <NavLink to="/Home" className="nav-link text-white">
+                        <NavLink to="/" className="nav-link text-white">
                             Home
                         </NavLink>
                     </li>
