@@ -32,18 +32,19 @@ export function DisplayForm(){
   async function formSubmit(event){
     let today = new Date().toLocaleString();
     try {
-      await addPost({source: ".../public/img/WaWildFire.jpg", alt: headerText, header:headerText, coordinates: "will insert coords later", date:today , content: contentText});
+      await addPost({source: ".img/WaWildFire.jpg", alt: headerText, header:headerText, coordinates: localStorage.getItem('address'), date:today , content: contentText});
     } catch (err) {
       console.log(err);
     }
     updateHeader('');
     updateContent('');
-    window.location.reload()
+    window.location.reload();
   }
 
   return (
   <div className="row mb-1">
-    <div className="post-form">
+    <div id="post-form">
+      <h2>Create a New Post:</h2>
       <label>
         Title:
         <input
@@ -57,7 +58,8 @@ export function DisplayForm(){
 
       <label>
         Details:
-        <input
+        <textarea id="content-box"
+          rows='10'
           type="text"
           name="content"
           defaultValue={contentText}

@@ -6,6 +6,38 @@ import 'bootstrap';
 import App from './components/App';
 import { BrowserRouter } from 'react-router-dom';
 
+// Import the functions you need from the SDKs you need
+
+import { initializeApp } from "firebase/app";
+
+// TODO: Add SDKs for Firebase products that you want to use
+
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+
+// Your web app's Firebase configuration
+
+const firebaseConfig = {
+
+  apiKey: "AIzaSyD9ogV79K-SEUfNTvy1DXusMyjIDb1i2gw",
+
+  authDomain: "sparkspotter-f5b95.firebaseapp.com",
+
+  projectId: "sparkspotter-f5b95",
+
+  storageBucket: "sparkspotter-f5b95.appspot.com",
+
+  messagingSenderId: "610039295792",
+
+  appId: "1:610039295792:web:54cf568ba4126225a8e2f5"
+
+};
+
+
+// Initialize Firebase
+
+const app = initializeApp(firebaseConfig);
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <BrowserRouter>

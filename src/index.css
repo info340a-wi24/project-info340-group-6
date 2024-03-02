@@ -190,6 +190,38 @@ footer {
   text-align: center;
 }
 
+#profile {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+#personal-info, #post-form {
+  border: 5px darkred solid;
+  padding: 1em;
+}
+
+#content-box {
+  height: 4em;
+}
+
+#post-form {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1em;
+  justify-content: space-between;
+}
+
+#post-form button {
+  background-color: darkred;
+  color: white;
+  border-radius: 1rem;
+}
+
+label {
+  margin-bottom: 2em;
+}
+
 @media only screen and (max-width: 598px) {
   #hamburger-menu {
     margin: 10px;
@@ -202,7 +234,7 @@ footer {
     width: 30px;
     height: 25px;
   }
-  
+
   #hamburger-menu span {
     display: block;
     width: 100%;
@@ -219,11 +251,11 @@ footer {
     display: none;
   }
 
-  .frame h1{ 
+  .frame h1{
     display: none;
   }
 
   #pages-links {
-    display: none; 
+    display: none;
   }
 }

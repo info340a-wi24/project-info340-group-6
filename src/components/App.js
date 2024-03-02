@@ -46,11 +46,6 @@ function App() {
       </header>
 
       <main className='container-fluid'>
-
-
-        <DisplayForm />
-
-
         <Routes>
           <Route index element={<PostsPage data={data || SAMPLE_POST} />} />
           <Route path='about' element={<About />} />

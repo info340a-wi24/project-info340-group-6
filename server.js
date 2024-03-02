@@ -1,4 +1,4 @@
-'use strict';
+
 const express = require('express');
 const app = express();
 app.use(express.json());
@@ -25,7 +25,7 @@ app.post('/postServer/addPost', function(req, res) {
     } else {
       try {
         const priorData = JSON.parse(data);
-        priorData.push(req.body);
+        priorData.unshift(req.body);
         fs.writeFile (path, JSON.stringify(priorData), (err) => {
           console.log(err);
         })
