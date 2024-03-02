@@ -1,0 +1,261 @@
+* {
+  box-sizing: border-box;
+}
+
+body, html, main {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  background-color:blanchedalmond;
+  font-size: 20px;
+}
+
+.frame {
+  display: flex;
+  justify-content: space-between;
+}
+.nav {
+  width: 20%;
+  height: 100vh;
+  float: left;
+  display: flex;
+  flex-direction: column;
+  background-color: darkred;
+  color: blanchedalmond;
+  align-items: center;
+  position: fixed;
+}
+
+.nav h1 {
+  margin-top: 30px;
+  align-self: center;
+  border: blanchedalmond 3px solid;
+  border-radius: 10px;
+  font-size: 2em;
+  padding: 0.5em;
+}
+
+.nav button {
+  border: blanchedalmond 3px solid;
+  border-radius: 10px;
+  color: blanchedalmond;
+  background-color: darkred;
+  margin-top: 2em;
+  width: 60%;
+  font-size: 1em;
+}
+
+footer {
+  background-color: darkred;
+  color: blanchedalmond;
+  text-align: center;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+}
+
+.top-bar-btn {
+  border: darkred 3px solid;
+  border-radius: 10px;
+  background-color: blanchedalmond;
+  float: right;
+  font-size: 1.5em;
+  color: darkred;
+  margin-right: 15px;
+}
+
+.posts {
+  margin-top: 5em;
+  margin-left: 35%;
+  display: flex;
+  flex-direction: column;
+  width: 75%;
+  justify-content: space-between;
+  margin-bottom: 5em;
+
+}
+
+.post {
+  margin-bottom: 50px;
+  width: 80%;
+  border: darkred 5px solid;
+  border-radius: 10px;
+
+}
+
+.post img {
+  width: 100%;
+  border-radius: 5px;
+}
+
+.user-submission {
+  width: 500px;
+  clear: both;
+}
+
+.user-submission input {
+  width: 100%;
+  clear: both;
+}
+
+.center-box {
+    border: 4px darkred solid;
+  color: black;
+}
+
+
+.banner {
+  background-color: darkred;
+  color: blanchedalmond;
+  text-align: center;
+  width: 100%;
+  height: 10%;
+  position: static;
+}
+
+.banner h1 {
+  float: left;
+  margin-left: 1.5em;
+}
+
+.banner-btn {
+  border: blanchedalmond 3px solid;
+  border-radius: 10px;
+  background-color: darkred;
+  float: right;
+  font-size: 1.5em;
+  color: blanchedalmond;
+  margin-right: 15px;
+  margin-top: 1em;
+}
+
+
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  position: absolute;
+  top: 40%;
+  left: 33%;
+  width: 33%;
+  background-color: darkred;
+  color: blanchedalmond;
+  border-radius: 5rem;
+  padding: 2em;
+  justify-content:space-between;
+  gap: 0.5em;
+}
+
+.private {
+  color: transparent;
+
+}
+
+.private:hover {
+  color: black;
+}
+
+.no-float {
+  display: inline;
+  float:none;
+}
+
+.mission-statement {
+  text-align: center;
+}
+
+.navbar {
+  background-color: darkred;
+}
+
+#user-content {
+  display: flex;
+  margin: auto;
+  flex-direction: column;
+  padding-top: 4em;
+  margin-left: 30%;
+  justify-content: space-between;
+}
+
+#user-content section{
+  margin-top:1em;
+}
+
+#user-submission{
+  text-align: center;
+}
+
+#profile {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+#personal-info, #post-form {
+  border: 5px darkred solid;
+  padding: 1em;
+}
+
+#content-box {
+  height: 4em;
+}
+
+#post-form {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1em;
+  justify-content: space-between;
+}
+
+#post-form button {
+  background-color: darkred;
+  color: white;
+  border-radius: 1rem;
+}
+
+label {
+  margin-bottom: 2em;
+}
+
+@media only screen and (max-width: 598px) {
+  #hamburger-menu {
+    margin: 10px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 25px;
+  }
+
+  #hamburger-menu span {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: blanchedalmond;
+    margin: 2px 0;
+  }
+
+  .banner h1{
+    padding-left: 4.7em;
+  }
+
+  .banner-btn{
+    display: none;
+  }
+
+  .frame h1{
+    display: none;
+  }
+
+  #pages-links {
+    display: none;
+  }
+}
