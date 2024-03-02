@@ -46,7 +46,9 @@ export default function Profile(props) {
     return (
         <div id = "profile">
             <div id="personal-info">
-            <h1>Profile</h1>
+            <h1 className="text-center">Profile</h1>
+                <div className="row">
+                <div className="col">
                 <input onChange={onChange}
                 value = {formData.fname}
                 type ={"text"}
@@ -54,6 +56,8 @@ export default function Profile(props) {
                 placeholder="First"
                 />
                 <p>First Name</p>
+                </div>
+                <div className="col">
                 <input onChange={onChange}
                 value = {formData.mname}
                 type ={"text"}
@@ -61,6 +65,8 @@ export default function Profile(props) {
                 placeholder="M"
                 />
                 <p>Middle Initial</p>
+                </div>
+                <div className="col">
                 <input onChange={onChange}
                 value = {formData.lname}
                 type ={"text"}
@@ -68,6 +74,10 @@ export default function Profile(props) {
                 placeholder="Last"
                 />
                 <p>Last Name</p>
+                </div>
+                </div>
+                <div className="row">
+                <div className="col">
                 <input onChange={onChange}
                 value = {formData.phone}
                 type ={"text"}
@@ -75,6 +85,8 @@ export default function Profile(props) {
                 placeholder="XXX-XXX-XXXX"
                 />
                 <p>Phone Number</p>
+                </div>
+                <div className="col">
                 <input onChange={onChange}
                 value = {formData.email}
                 type ={"text"}
@@ -82,6 +94,8 @@ export default function Profile(props) {
                 placeholder="JohnDoe@me.com"
                 />
                 <p>E-Mail</p>
+                </div>
+                <div className="col">
                 <input onChange={onChange}
                 value = {formData.address}
                 type ={"text"}
@@ -89,6 +103,10 @@ export default function Profile(props) {
                 placeholder="Address"
                 />
                 <p>Address</p>
+                </div>
+                </div>
+                <div className="row align-items-center">
+                <div className="col offset-1">
                 <input onChange={onChange}
                 value = {formData.state}
                 type ={"text"}
@@ -96,6 +114,8 @@ export default function Profile(props) {
                 placeholder="WA"
                 />
                 <p>State</p>
+                </div>
+                <div className="col">
                 <input onChange={onChange}
                 value = {formData.postal}
                 type ={"text"}
@@ -103,6 +123,8 @@ export default function Profile(props) {
                 placeholder="XXXXX"
                 />
                 <p>Postal Code</p>
+                </div>
+                </div>
                 <button type="submit" onClick={setStorage}>Submit</button>
                 </div>
                 <DisplayForm />

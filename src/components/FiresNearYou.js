@@ -22,8 +22,8 @@ export default function FiresNearYou(props) {
         };
       }
     return (
-        <div id="map">
-        <h1>Look For Fires Near You</h1>
+        <div id="map" className="row d-flex justify-content-center">
+        <h1 className="text-center">Look For Fires Near You</h1>
             <input onChange={onChange} 
                 value = {formData.address}
                 type ={"text"}
