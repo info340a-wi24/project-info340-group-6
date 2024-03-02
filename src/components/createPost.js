@@ -32,7 +32,7 @@ export function DisplayForm(){
   async function formSubmit(event){
     let today = new Date().toLocaleString();
     try {
-      await addPost({source: ".img/WaWildFire.jpg", alt: headerText, header:headerText, coordinates: localStorage.getItem('address'), date:today , content: contentText});
+      await addPost({source: "/img/WaWildFire.jpg", alt: headerText, header:headerText, coordinates: localStorage.getItem('address'), date:today , content: contentText});
     } catch (err) {
       console.log(err);
     }
