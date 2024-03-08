@@ -7,7 +7,6 @@ export default function PostsPage(props) {
         return <Post key={post.content} fire={post} />;
     })
     console.log(GetPosts());
-    AddNewPost({Greeting: "Hello"});
 
     return (
         <div className="container">
