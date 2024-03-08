@@ -1,10 +1,13 @@
 import React from "react";
+import {GetPosts, AddNewPost} from "./fireBaseFunctions.js";
 
 export default function PostsPage(props) {
     const data = props.data;
     const postArr = data.map((post) => {
         return <Post key={post.content} fire={post} />;
     })
+    console.log(GetPosts());
+    AddNewPost({Greeting: "Hello"});
 
     return (
         <div className="container">
