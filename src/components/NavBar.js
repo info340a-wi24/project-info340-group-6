@@ -41,10 +41,18 @@ export default function NavBar(props) {
                             Evacuations
                         </NavLink>
                     </li>
-                    <li className="nav-item active">
-                        <NavLink to="/Profile" className="nav-link text-white">
+                </ul>
+                <ul className="navbar-nav ms-auto">
+                    <li className="nav-item dropdown">
+                        <NavLink to="/Profile" className="nav-link text-white dropdown-toggle" id="profileDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Profile
                         </NavLink>
+                        <ul className="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdown">
+                            <li><NavLink className="dropdown-item" to="/Profile">Details</NavLink></li>
+                            <li><NavLink className="dropdown-item" to="/Profile/Settings">Settings</NavLink></li>
+                            <li><hr className="dropdown-divider" /></li>
+                            <li><NavLink className="dropdown-item" to="/Profile/Logout">Logout</NavLink></li>
+                        </ul>
                     </li>
                 </ul>
             </div>
