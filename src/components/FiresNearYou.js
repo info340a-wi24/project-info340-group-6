@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useLoadScript } from "@react-google-maps/api";
-import Map from "../components/Map";
+import Map from "./Map.tsx";
 
 export default function FiresNearYou(props) {
 
