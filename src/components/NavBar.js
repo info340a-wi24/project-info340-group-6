@@ -37,8 +37,8 @@ export default function NavBar(props) {
                         </NavLink>
                     </li>
                     <li className="nav-item active">
-                        <NavLink to="/Evacuations" className="nav-link text-white">
-                            Evacuations
+                        <NavLink to="/Resources" className="nav-link text-white">
+                            Resources
                         </NavLink>
                     </li>
                 </ul>
