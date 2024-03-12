@@ -41,24 +41,23 @@ function App() {
     const today = new Date();
     const lastMonth = new Date(today.getFullYear(), today.getMonth() - 1, today.getDate());
 
-// Format the date in 'YYYY-MM-DD' format
+    // Format the date in 'YYYY-MM-DD' format
     const fromDate = lastMonth.toISOString().split('T')[0];
 
     const url = `https://newsapi.org/v2/everything?` +
-            `q=fires OR "forest fires" OR wildfires&` + // Search globally for these topics
-            `from=${fromDate}&` + // Fetch articles from the last month
+            `q=fires OR "forest fires" OR wildfires&` + 
+            `from=${fromDate}&` +
             'pageSize=20&' +
-            `sortBy=publishedAt&` + // Sort by most recent articles
+            `sortBy=publishedAt&` +
             `domains=nationalgeographic.com,npr.org,pbs.org/newhournature.com,fs.fed.us,sciencemag.org,weather.com,mnm.com,sierraclub.org,scientificamerican.com,greenpeace.org,ecowatch.com,climatecentral.org,environmentalnewsnetwork.com,fire.ca.gov,inciweb.nwcg.gov&` + // Restrict search to these domains for high-quality, relevant articles
             `apiKey=19026760006e40e7bc668a48612e7410`;
 
     fetch(url)
       .then(response => response.json())
       .then(data => {
-        console.log(data.articles);
         setArticles(data.articles);
       })
-      .catch(error => console.log(error));
+      .catch(error => console.log('Error fetching data:', error));
   }, []);
 
   return (
@@ -72,17 +71,18 @@ function App() {
       </header>
 
       <main className='container-fluid'>
-        <Routes>
-          <Route index element={<PostsPage data={data || SAMPLE_POST} />} />
-          <Route path='about' element={<About />} />
-          <Route path='profile' element={<Profile />} />
-          <Route path='firesnearyou' element={<FiresNearYou />} />
-          <Route path='resources' element={<Resources articles={articles}/>} >
-            <Route path='news' element={<News articles={articles}/>} />
-            <Route path='prepare' element={<Prepare />} />
-          </Route>
-          <Route path='*' element={<Navigate to="/" />} />
-        </Routes>
+      <Routes>
+        <Route index element={<PostsPage data={data || SAMPLE_POST} />} />
+        <Route path='about' element={<About />} />
+        <Route path='profile' element={<Profile />} />
+        <Route path='firesnearyou' element={<FiresNearYou />} />
+        <Route path='resources' element={<Resources articles={articles}/>}>
+          <Route path='news' element={<News articles={articles}/>} />
+          <Route path='prepare' element={<Prepare />} />
+        </Route>
+        <Route path='*' element={<Navigate to="/" />} />
+      </Routes>
+
       </main>
 
       <footer>

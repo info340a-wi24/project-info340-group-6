@@ -3,7 +3,7 @@ import { Container, Card, Button } from 'react-bootstrap';
 
 export default function Prepare() {
     return (
-        <Container>
+        <div className='container mb-3'>
             <h2>Overview</h2>
             <p>Understanding the importance of fire preparedness is crucial for the safety and security of individuals and communities. This guide provides a comprehensive look at how to prepare for a fire.</p>
 
@@ -39,12 +39,26 @@ export default function Prepare() {
             </ul>
 
             <h2 id="resources">Additional Resources</h2>
-            <Card>
+            <Card className='mb-3'>
                 <Card.Body>
                     <Card.Title>Red Cross: Fire Preparedness</Card.Title>
                     <Button variant="primary" href="https://www.redcross.org/get-help/how-to-prepare-for-emergencies/types-of-emergencies/fire.html" target="_blank">Visit Site</Button>
                 </Card.Body>
             </Card>
-        </Container>
+            <Card className="mb-3">
+                <Card.Body>
+                    <Card.Title>CDC: Wildfires</Card.Title>
+                    <Button variant="primary" href="https://www.cdc.gov/disasters/wildfires/index.html" target="_blank">Visit Site</Button>
+                </Card.Body>
+            </Card>
+            <Card className="mb-5">
+                <Card.Body>
+                    <Card.Title>NFPA: Wildfire Preparedness</Card.Title>
+                    <Button variant="primary" href="https://www.nfpa.org/Public-Education/Fire-causes-and-risks/Wildfire/Wildfire-safety-tips" target="_blank">Visit Site</Button>
+                </Card.Body>
+            </Card>
+
+
+        </ div>
     );
 }

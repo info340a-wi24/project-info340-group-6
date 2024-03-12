@@ -9,6 +9,10 @@ body, html, main {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+main {
+  padding-bottom: 3em;
+}
+
 body {
   background-color:blanchedalmond;
   font-size: 20px;
@@ -221,6 +225,19 @@ footer {
 label {
   margin-bottom: 2em;
 }
+
+.caption-background {
+  background-color: rgba(0, 0, 0, 0.3); /* Black background with 50% opacity */
+  color: white; /* White text color */
+  padding: 1rem; /* Some padding */
+  border-radius: 0.25rem; /* Optional: rounded corners */
+}
+
+.caption-background h3,
+.caption-background p {
+  margin-bottom: 0; /* Remove bottom margin to reduce space */
+}
+
 
 @media only screen and (max-width: 598px) {
   #hamburger-menu {
