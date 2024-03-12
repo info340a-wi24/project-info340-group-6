@@ -37,6 +37,7 @@ function carouselArticle(article) {
         <h3>{article.title}</h3>
         <p>{article.description}</p>
         <a href={article.url} target="_blank" rel="noopener noreferrer" className="btn btn-primary">Read More</a>
+        <NavLink to="news" className="btn btn-primary">More Articles</NavLink>
       </Carousel.Caption>
     </Carousel.Item>
   );
