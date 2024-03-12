@@ -1,21 +1,57 @@
-import React from "react";
-import {GetPosts, AddNewPost} from "./fireBaseFunctions.js";
+import React, {useState, useEffect} from "react";
+import { getDatabase, ref, onValue, push, get } from 'firebase/database';
 
-export default function PostsPage(props) {
-    const data = props.data;
-    const postArr = data.map((post) => {
-        return <Post key={post.content} fire={post} />;
-    })
-    console.log(GetPosts());
 
-    return (
-        <div className="container">
-            <div className="row justify-content-center">
-                {postArr}
+function GetPosts() {
+    const [postData, setPostData] = useState(null);
+
+    useEffect(() => {
+      const db = getDatabase();
+      const postRef = ref(db, "posts");
+      const unregisterFunction = onValue(postRef, (snapshot) => {
+        const postValue = snapshot.val();
+        setPostData(postValue);
+      });
+
+      return () => {
+        unregisterFunction();
+      };
+    }, []);
+
+    console.log(postData);
+    return postData;
+  }
+
+export default function PostsPage() {
+    const [data, setData] = useState(null);
+      useEffect(() => {
+        const db = getDatabase();
+        const postRef = ref(db, "posts");
+        const unregisterFunction = onValue(postRef, (snapshot) => {
+          const postValue = snapshot.val();
+          setData(postValue);
+        });
+
+        return () => {
+          unregisterFunction();
+        };
+      }, []);
+
+    if (data === null){
+        return <p>Loading...</p>
+    } else {
+        const postArr = Object.values(data).map((post, index) => (
+            <Post key={index} fire={post} />
+          ));
+
+          return (
+            <div className="container">
+              <div className="row justify-content-center">{postArr}</div>
             </div>
-        </div>
-    )
-}
+          );
+    }
+
+  }
 
 function Post(props) {
     const fire = props.fire;

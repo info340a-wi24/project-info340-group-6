@@ -1,9 +1,11 @@
 import React, {useState} from "react";
-
+import { getDatabase, ref, onValue, push, get } from 'firebase/database';
+import { useNavigate } from 'react-router-dom';
 
 
 
 export function DisplayForm(){
+  const navigate = useNavigate();
   const [headerText, updateHeader] = useState('');
   const [contentText, updateContent] = useState('');
 
@@ -15,19 +17,12 @@ export function DisplayForm(){
     updateContent(event.target.value)
   }
 
-  async function addPost(formData){
-    try {
-      await fetch('http://localhost:5000/postServer/addPost', {
-      method: 'POST',
-      body: JSON.stringify(formData),
-      headers: {
-        'Content-Type': 'application/json',
-      }
-    });
-    } catch (err) {
-      console.log('bad');
-    }
-  }
+  function addPost(formData) {
+    const db = getDatabase();
+    const postListRef = ref(db, 'posts');
+
+    push(postListRef, formData);
+  };
 
   async function formSubmit(event){
     let today = new Date().toLocaleString();
@@ -38,7 +33,7 @@ export function DisplayForm(){
     }
     updateHeader('');
     updateContent('');
-    window.location.reload();
+    navigate('/posts');
   }
 
   return (
