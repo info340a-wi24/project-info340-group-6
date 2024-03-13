@@ -246,6 +246,7 @@ label {
 .map {
   width: 80%;
   height: 80vh;
+  margin-left: 10%;
 }
 
 .controls {
