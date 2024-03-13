@@ -2,6 +2,14 @@ import React from "react";
 import {NavLink} from 'react-router-dom';
 
 export default function NavBar(props) {
+    let inOrOut = "Log In";
+    if (localStorage.getItem('loggedIn')){
+        inOrOut = 'Log Out';
+    }
+    function logOut() {
+        localStorage.removeItem('loggedIn');
+        window.location.reload();
+    }
     return (
         <nav className="navbar navbar-expand-sm navbar-light">
             <NavLink to="/" className="navbar-brand mb-0 h1 text-white">
@@ -51,7 +59,7 @@ export default function NavBar(props) {
                             <li><NavLink className="dropdown-item" to="/Profile">Details</NavLink></li>
                             <li><NavLink className="dropdown-item" to="/Profile/Settings">Settings</NavLink></li>
                             <li><hr className="dropdown-divider" /></li>
-                            <li><NavLink className="dropdown-item" to="/Profile/Logout">Logout</NavLink></li>
+                            <li><NavLink className="dropdown-item" to="/Profile" onClick={logOut}>{inOrOut}</NavLink></li>
                         </ul>
                     </li>
                 </ul>

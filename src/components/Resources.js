@@ -3,6 +3,7 @@ import { Carousel } from 'react-bootstrap';
 import { NavLink, Outlet } from 'react-router-dom';
 
 export default function Resources(props) {
+  console.log(props);
   const articles = props.articles.slice(0,3);
   console.log(articles);
   const arrArticles = articles.map( (article) => carouselArticle(article));
@@ -16,7 +17,7 @@ export default function Resources(props) {
         </div>
         <div className='col-md-6'>
           <Carousel>
-            {carouselItem()}  
+            {carouselItem()}
           </Carousel>
         </div>
       </div>

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import {DisplayForm} from './createPost.js'
-import { getDatabase, ref, onValue, push, get } from 'firebase/database';
+import { getDatabase, ref, onValue, push, get, orderByChild, equalTo, query } from 'firebase/database';
 
 export default function Profile(props) {
 
@@ -53,7 +53,7 @@ export default function Profile(props) {
         }
 
 
-        /*
+
         const onLoginChange = (e) => {
             setLoginData((prev) => ({
                 ...prev,
@@ -61,12 +61,13 @@ export default function Profile(props) {
             })
         )}
 
+        /*
         async function loginAttempt() {
             console.log('triggered');
             const db = getDatabase();
             const loginRef = ref(db, "UserLogin");
             try {
-                const snapshot = await loginRef.orderByChild('username').equalTo(loginData.username);
+                const snapshot = await loginRef.orderByChild('username').equalTo(loginData.username).once('value');
                 console.log(snapshot);
                 if (snapshot.exists()) {
                   localStorage.setItem('loggedIn', true);
@@ -75,9 +76,35 @@ export default function Profile(props) {
                   return false;
                 }
               } catch (error) {
+                console.log(error);
                 return false;
               }
         };
+        */
+
+
+    async function loginAttempt() {
+        console.log('triggered');
+        const db = getDatabase();
+        const loginRef = ref(db, "UserLogin");
+
+        const loginQuery = query(loginRef, orderByChild('username'), equalTo(loginData.username));
+
+        try {
+        const snapshot = await get(loginQuery);
+
+        if (snapshot.exists()) {
+            localStorage.setItem('loggedIn', true);
+            window.location.reload();
+            return true;
+        } else {
+            return false;
+        }
+        } catch (error) {
+            console.error('Error during login attempt:', error);
+            return false;
+        }
+    }
 
         //console.log(loginAttempt());
 
@@ -101,7 +128,6 @@ export default function Profile(props) {
             );
         }
 
-            */
     return (
         <div id = "profile">
             <div id="personal-info">
