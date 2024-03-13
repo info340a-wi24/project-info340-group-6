@@ -9,14 +9,14 @@ type MapOptions = google.maps.MapOptions;
 
 export default function Map() {
     const [ping, setPing] = useState<LatLngLiteral>();
-    const mapRef = useRef<GoogleMap>()
+    const mapRef = useRef<GoogleMap>();
     const center = useMemo<LatLngLiteral>(() => ({lat: 47.655, lng: -122.30}), []);
     const options = useMemo<MapOptions>(
-        () =>({
-        disableDefaultUi: true,
-        clickableIccons: false,
-    }), 
-    []
+        () => ({
+            disableDefaultUi: true,
+            clickableIccons: false,
+        }), 
+        []
     );
     const onLoad = useCallback((map)=>(mapRef.current = map), []);
     return (
@@ -38,7 +38,6 @@ export default function Map() {
                 onLoad={onLoad}
             >
                 {ping && <Marker position={ping} />}
-
             </GoogleMap>
         </div>
     </div>
