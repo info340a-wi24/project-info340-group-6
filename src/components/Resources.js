@@ -15,9 +15,13 @@ export default function Resources(props) {
           </Carousel>
         </div>
         <div className='col-md-6'>
-          <Carousel>
-            {carouselItem()}  
-          </Carousel>
+          {carouselPrepare()}
+        </div>
+        <div className='col-md-6'>
+          {carouselDuring()}
+        </div>
+        <div className='col-md-6'>
+          {carouselAfter()}
         </div>
       </div>
       <Outlet />
@@ -43,20 +47,60 @@ function carouselArticle(article) {
   );
 }
 
-function carouselItem() {
+function carouselPrepare() {
   return (
-    <Carousel.Item key='fire-prevention'>
-      <img
-      className="d-block w-100"
-      src="https://enews.wvu.edu/files/9a7c6c3b-39d3-41b1-b658-69feaac1c4ed/1200x?cb=23e5ef01286ea4ac08cc91efaa584393"
-      alt="marked out flame"
-      />
-      <Carousel.Caption className='caption-background'>
-        <h3>Fire Prevention</h3>
-        <p>Preventing a fire is the best was to prepare for it.</p>
-        <NavLink to='prepare' className="btn btn-primary">Learn More</NavLink>
-      </Carousel.Caption>
-    </Carousel.Item>
+    <Carousel>
+      <Carousel.Item key='fire-prevention'>
+        <img
+        className="d-block w-100"
+        src="https://enews.wvu.edu/files/9a7c6c3b-39d3-41b1-b658-69feaac1c4ed/1200x?cb=23e5ef01286ea4ac08cc91efaa584393"
+        alt="marked out flame"
+        />
+        <Carousel.Caption className='caption-background'>
+          <h3>Fire Prevention</h3>
+          <p>Preventing a fire is the best was to prepare for it.</p>
+          <NavLink to='prepare' className="btn btn-primary">Learn More</NavLink>
+        </Carousel.Caption>
+      </Carousel.Item>
+    </Carousel>
   )
+}
+
+function carouselDuring() {
+  return (
+    <Carousel>
+      <Carousel.Item key='immediate-actions'>
+        <img
+        className="d-block w-100"
+        src="https://enews.wvu.edu/files/9a7c6c3b-39d3-41b1-b658-69feaac1c4ed/1200x?cb=23e5ef01286ea4ac08cc91efaa584393"
+        alt="marked out flame"
+        />
+        <Carousel.Caption className='caption-background'>
+          <h3>Immediate Action</h3>
+          <p>As soon as you become aware of a fire, act quickly and calmly to ensure your safety and that of others.</p>
+          <NavLink to='during' className="btn btn-primary">Learn More</NavLink>
+        </Carousel.Caption>
+      </Carousel.Item>
+    </Carousel>
+  )
+}
+
+function carouselAfter() {
+  return (
+    <Carousel>
+      <Carousel.Item key='safety-first'>
+        <img
+        className="d-block w-100"
+        src="https://enews.wvu.edu/files/9a7c6c3b-39d3-41b1-b658-69feaac1c4ed/1200x?cb=23e5ef01286ea4ac08cc91efaa584393"
+        alt="marked out flame"
+        />
+        <Carousel.Caption className='caption-background'>
+          <h3>Safety First</h3>
+          <p>Before re-entering your home or any affected are, ensure it's safe.</p>
+          <NavLink to='after' className="btn btn-primary">Learn More</NavLink>
+        </Carousel.Caption>
+      </Carousel.Item>
+    </Carousel>
+  )  
 }
 

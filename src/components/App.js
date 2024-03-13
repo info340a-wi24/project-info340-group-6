@@ -11,6 +11,8 @@ import { useState, useEffect } from 'react';
 import {DisplayForm} from './createPost.js'
 import Resources from './Resources.js';
 import Prepare from './Prepare.js';
+import During from './During.js';
+import AfterFire from './AfterFire.js';
 
 
 
@@ -79,6 +81,8 @@ function App() {
         <Route path='resources' element={<Resources articles={articles}/>}>
           <Route path='news' element={<News articles={articles}/>} />
           <Route path='prepare' element={<Prepare />} />
+          <Route path='during' element={<During />} />
+          <Route path='after' element={<AfterFire />} />
         </Route>
         <Route path='*' element={<Navigate to="/" />} />
       </Routes>
