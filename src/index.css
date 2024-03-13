@@ -255,6 +255,11 @@ label {
   color: #fff;
 }
 
+.combobox-input {
+  width: 100%;
+  padding: .5rem;
+}
+
 @media only screen and (max-width: 598px) {
   #hamburger-menu {
     margin: 10px;

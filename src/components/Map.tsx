@@ -10,7 +10,7 @@ type MapOptions = google.maps.MapOptions;
 export default function Map() {
     const [ping, setPing] = useState<LatLngLiteral>();
     const mapRef = useRef<GoogleMap>()
-    const center = useMemo<LatLngLiteral>(() => ({lat: 43, lng: -80}), []);
+    const center = useMemo<LatLngLiteral>(() => ({lat: 47.655, lng: -122.30}), []);
     const options = useMemo<MapOptions>(
         () =>({
         disableDefaultUi: true,
@@ -37,6 +37,8 @@ export default function Map() {
                 options={options}
                 onLoad={onLoad}
             >
+                {ping && <Marker position={ping} />}
+
             </GoogleMap>
         </div>
     </div>
