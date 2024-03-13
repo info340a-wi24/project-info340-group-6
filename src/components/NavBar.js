@@ -10,6 +10,8 @@ export default function NavBar(props) {
         localStorage.removeItem('loggedIn');
         window.location.reload();
     }
+
+    const isLoggedIn = localStorage.getItem('loggedIn');
     return (
         <nav className="navbar navbar-expand-sm navbar-light">
             <NavLink to="/" className="navbar-brand mb-0 h1 text-white">
@@ -59,7 +61,7 @@ export default function NavBar(props) {
                             <li><NavLink className="dropdown-item" to="/Profile">Details</NavLink></li>
                             <li><NavLink className="dropdown-item" to="/Profile/Settings">Settings</NavLink></li>
                             <li><hr className="dropdown-divider" /></li>
-                            <li><NavLink className="dropdown-item" to="/Profile" onClick={logOut}>{inOrOut}</NavLink></li>
+                            <li><NavLink className="dropdown-item" to="/Profile" onClick={isLoggedIn ? logOut : undefined}>{inOrOut}</NavLink></li>
                         </ul>
                     </li>
                 </ul>
