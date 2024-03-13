@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import {DisplayForm} from './createPost.js'
+import { getDatabase, ref, onValue, push, get } from 'firebase/database';
 
 export default function Profile(props) {
 
@@ -13,6 +14,11 @@ export default function Profile(props) {
             state: "",
             postal: ""
         });
+
+        const [loginData, setLoginData] = useState({
+            username: '',
+            password: '',
+          });
 
         const onChange = (e) => {
             setFormData((prev) => ({
@@ -32,6 +38,8 @@ export default function Profile(props) {
             localStorage.setItem('fname', formData.fname);
             localStorage.setItem('lname', formData.lname);
             localStorage.setItem('address', formData.address);
+            localStorage.setItem('state', formData.address);
+            localStorage.setItem('phone')
             setFormData({
                 fname: "",
                 mname: "",
@@ -43,6 +51,57 @@ export default function Profile(props) {
                 postal: ""
             });
         }
+
+
+        /*
+        const onLoginChange = (e) => {
+            setLoginData((prev) => ({
+                ...prev,
+                [e.target.id]: e.target.value
+            })
+        )}
+
+        async function loginAttempt() {
+            console.log('triggered');
+            const db = getDatabase();
+            const loginRef = ref(db, "UserLogin");
+            try {
+                const snapshot = await loginRef.orderByChild('username').equalTo(loginData.username);
+                console.log(snapshot);
+                if (snapshot.exists()) {
+                  localStorage.setItem('loggedIn', true);
+                  return true;
+                } else {
+                  return false;
+                }
+              } catch (error) {
+                return false;
+              }
+        };
+
+        //console.log(loginAttempt());
+
+
+        if (!localStorage.getItem('loggedIn')){
+            return (
+                <div id = "loginForm">
+                    <h1>Enter Login Information</h1>
+                    <input onChange={onLoginChange}
+                        type = {"text"}
+                        id='username'
+                        placeholder="username"
+                    />
+                    <input onChange={onLoginChange}
+                        type = {"text"}
+                        id='password'
+                        placeholder="password"
+                    />
+                    <button type="submit" onClick={loginAttempt}>Submit</button>
+                </div>
+            );
+        }
+
+            */
     return (
         <div id = "profile">
             <div id="personal-info">
