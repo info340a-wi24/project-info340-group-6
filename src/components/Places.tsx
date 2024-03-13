@@ -33,8 +33,11 @@ export default function Places({ setPing }: PlacesProps){
         setPing({ lat, lng });
     };
     
-    return <Combobox onSelect={() => {}}>
-        <ComboboxInput value={value} onChange={e => setValue(e.target.value)}
+    return (  
+        <Combobox onSelect={handleSelect}>
+            <ComboboxInput 
+            value={value}
+            onChange={e => setValue(e.target.value)}
             disabled={!ready}
             className="combobox-input"
             placeholder="Address"
@@ -46,5 +49,6 @@ export default function Places({ setPing }: PlacesProps){
                 ))}    
             </ComboboxList>    
         </ComboboxPopover>    
-    </Combobox>;
+    </Combobox>
+    )
 }
