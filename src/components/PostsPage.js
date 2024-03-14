@@ -44,6 +44,7 @@ export default function PostsPage() {
         const postArr = Object.values(data).map((post, index) => (
             <Post key={index} fire={post} />
           ));
+          console.log(postArr);
 
           return (
             <div className="container">
@@ -55,6 +56,7 @@ export default function PostsPage() {
   }
 
 function Post(props) {
+    console.log(props.fire)
     const fire = props.fire;
     const navigate = useNavigate();
 
