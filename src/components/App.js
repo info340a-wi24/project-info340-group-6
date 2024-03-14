@@ -13,6 +13,7 @@ import Resources from './Resources.js';
 import Prepare from './Prepare.js';
 import During from './During.js';
 import AfterFire from './AfterFire.js';
+import PostsByUser from './UserPosts.js';
 
 
 
@@ -21,24 +22,6 @@ function App() {
   const [data, setData] = useState(null);
   const [articles, setArticles] = useState([]);
 
-  async function getData(){
-    try {
-      const response = await fetch('http://localhost:5000/postServer/data');
-
-      if (!response.ok) {
-        throw new Error(`HTTP error! Status: ${response.status}`);
-      }
-
-      setData(await response.json());
-    } catch (error) {
-      console.error('Error fetching data:', error.message);
-    }
-  }
-
-  useEffect(() => {
-    getData();
-  }, []);
-  
   useEffect(() => {
     const today = new Date();
     const lastMonth = new Date(today.getFullYear(), today.getMonth() - 1, today.getDate());
@@ -47,7 +30,7 @@ function App() {
     const fromDate = lastMonth.toISOString().split('T')[0];
 
     const url = `https://newsapi.org/v2/everything?` +
-            `q=fires OR "forest fires" OR wildfires&` + 
+            `q=fires OR "forest fires" OR wildfires&` +
             `from=${fromDate}&` +
             'pageSize=20&' +
             `sortBy=publishedAt&` +
@@ -84,6 +67,7 @@ function App() {
           <Route path='during' element={<During />} />
           <Route path='after' element={<AfterFire />} />
         </Route>
+        <Route path="/postByUser/:postId" element={<PostsByUser />} />
         <Route path='*' element={<Navigate to="/" />} />
       </Routes>
 

@@ -3,6 +3,7 @@ import { Carousel } from 'react-bootstrap';
 import { NavLink, Outlet } from 'react-router-dom';
 
 export default function Resources(props) {
+  console.log(props);
   const articles = props.articles.slice(0,3);
   console.log(articles);
   const arrArticles = articles.map( (article) => carouselArticle(article));
@@ -15,7 +16,9 @@ export default function Resources(props) {
           </Carousel>
         </div>
         <div className='col-md-6'>
-          {carouselPrepare()}
+          <Carousel>
+            {carouselPrepare()}
+          </Carousel>
         </div>
         <div className='col-md-6'>
           {carouselDuring()}
@@ -38,9 +41,11 @@ function carouselArticle(article) {
         alt={article.title}
       />
       <Carousel.Caption className="caption-background">
-        <h3>{article.title}</h3>
+        <h3 className='carousel-title'>News Articles</h3>
+        <br/>
+        <h4>{article.title}</h4>
         <p>{article.description}</p>
-        <a href={article.url} target="_blank" rel="noopener noreferrer" className="btn btn-primary">Read More</a>
+        <a href={article.url} target="_blank" rel="noopener noreferrer" className="btn btn-primary pr-2">Read More</a>
         <NavLink to="news" className="btn btn-primary">More Articles</NavLink>
       </Carousel.Caption>
     </Carousel.Item>
@@ -101,6 +106,6 @@ function carouselAfter() {
         </Carousel.Caption>
       </Carousel.Item>
     </Carousel>
-  )  
+  )
 }
 

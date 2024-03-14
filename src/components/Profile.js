@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import {DisplayForm} from './createPost.js'
-import { getDatabase, ref, onValue, push, get } from 'firebase/database';
+import { getDatabase, ref, onValue, push, get, orderByChild, equalTo, query, update } from 'firebase/database';
 
 export default function Profile(props) {
 
@@ -33,13 +33,29 @@ export default function Profile(props) {
             })
         )}
 
-        function setStorage(){
+        async function setStorage(){
             console.log(formData.fname);
-            localStorage.setItem('fname', formData.fname);
-            localStorage.setItem('lname', formData.lname);
-            localStorage.setItem('address', formData.address);
-            localStorage.setItem('state', formData.address);
-            localStorage.setItem('phone')
+            const db = getDatabase();
+            const userRef = ref(db, `UserInfo/${localStorage.getItem("userId")}`);
+
+            try {
+                await update(userRef, {
+                    fname: formData.fname,
+                    mname: formData.mname,
+                    lname: formData.lname,
+                    address: formData.address,
+                    state: formData.state,
+                    phone: formData.phone,
+                    email: formData.email,
+                    address: formData.address,
+                    state: formData.state,
+                    postal: formData.postal
+                });
+
+                console.log('Username and password updated successfully.');
+            } catch (error) {
+                console.error('Error updating username and password:', error);
+            }
             setFormData({
                 fname: "",
                 mname: "",
@@ -53,7 +69,7 @@ export default function Profile(props) {
         }
 
 
-        /*
+
         const onLoginChange = (e) => {
             setLoginData((prev) => ({
                 ...prev,
@@ -61,36 +77,46 @@ export default function Profile(props) {
             })
         )}
 
-        async function loginAttempt() {
-            console.log('triggered');
-            const db = getDatabase();
-            const loginRef = ref(db, "UserLogin");
-            try {
-                const snapshot = await loginRef.orderByChild('username').equalTo(loginData.username);
-                console.log(snapshot);
-                if (snapshot.exists()) {
-                  localStorage.setItem('loggedIn', true);
-                  return true;
-                } else {
-                  return false;
-                }
-              } catch (error) {
+    async function loginAttempt() {
+        console.log('triggered');
+        const db = getDatabase();
+        const loginRef = ref(db, "UserLogin");
+
+        const loginQuery = query(loginRef, orderByChild('username'), equalTo(loginData.username));
+
+        try {
+            const snapshot = await get(loginQuery);
+            if (snapshot.exists()) {
+                snapshot.forEach((childSnapshot) => {
+                    const user = childSnapshot.val();
+                    if (user.password === loginData.password) {
+                        localStorage.setItem('loggedIn', true);
+                        localStorage.setItem('userId', childSnapshot.key);
+                        window.location.reload();
+                        return true;
+                    }
+                  });
+
+            } else {
                 return false;
-              }
-        };
-
-        //console.log(loginAttempt());
-
+            }
+        } catch (error) {
+            console.error('Error during login attempt:', error);
+            return false;
+        }
+    }
 
         if (!localStorage.getItem('loggedIn')){
             return (
                 <div id = "loginForm">
                     <h1>Enter Login Information</h1>
+                    <label htmlFor="username">Username:</label>
                     <input onChange={onLoginChange}
                         type = {"text"}
                         id='username'
                         placeholder="username"
                     />
+                    <label htmlFor="password">Password:</label>
                     <input onChange={onLoginChange}
                         type = {"text"}
                         id='password'
@@ -101,7 +127,6 @@ export default function Profile(props) {
             );
         }
 
-            */
     return (
         <div id = "profile">
             <div id="personal-info">
