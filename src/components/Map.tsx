@@ -21,42 +21,42 @@ export default function Map() {
         []
     );
 
-    fetch("https://api.precisely.com/oauth/token", {
-        method: 'post',
-        body: 'grant_type=client_credentials',
-        headers : new Headers ({
-            'Authorization': 'Basic ' + Buffer.from('fo1ybRYY76gAkQliA0YxuhUxfbSOysuP:kWh4N18yA4t8WNYQ').toString("base64"),
-            'Content-Type': 'application/x-www-form-urlencoded/e2ZvMXliUllZNzZnQWtRbGlBMFl4dWhVeGZiU095c3VQfTp7a1doNE4xOHlBNHQ4V05ZUX0='
-        }) 
-    })
-    .then((response) => 
-        response.json()
-    )
-    .then((data) => {
-        console.log(data);
-        return fetch("https://api.precisely.com/risks/v2/fire/byaddress?address=" + ping + "&includeGeometry=N",{
-            method: 'GET',
-            headers : {
-                'Authorization': `Bearer ${data.access_token}`
-            } 
-        })
-        .then((response) =>
-            response.json()
-        )
-        .then((data) => {
-            console.log(data);
-            return data;
-        })
-    });
-
     const onLoad = useCallback((map)=>(mapRef.current = map), []);
     return (
     <div className="container"> 
         <div className="controls">
             <h1>Look Up Fires</h1>
             <Places setPing={(position) => {
+
                 setPing(position);
                 mapRef.current?.panTo(position);
+                fetch("https://api.precisely.com/oauth/token", {
+                    method: 'post',
+                    body: 'grant_type=client_credentials',
+                    headers : new Headers ({
+                        'Authorization': 'Basic ' + Buffer.from('fo1ybRYY76gAkQliA0YxuhUxfbSOysuP:kWh4N18yA4t8WNYQ').toString("base64"),
+                        'Content-Type': 'application/x-www-form-urlencoded/e2ZvMXliUllZNzZnQWtRbGlBMFl4dWhVeGZiU095c3VQfTp7a1doNE4xOHlBNHQ4V05ZUX0='
+                    }) 
+                })
+                .then((response) => 
+                    response.json()
+                )
+                .then((data) => {
+                    console.log(data);
+                    return fetch(`https://api.precisely.com/risks/v2/fire/bylocation?latitude=${position.lat}&longitude=${position.lng}&includeGeometry=N`,{
+                        method: 'GET',
+                        headers : {
+                            'Authorization': `Bearer ${data.access_token}`
+                        } 
+                    })
+                    .then((response) =>
+                        response.json()
+                    )
+                    .then((data) => {
+                        console.log(data);
+                        return data;
+                    })
+                });
             }
             }/>
         </div>
