@@ -6,7 +6,7 @@ import About from './About';
 import NavBar from './NavBar';
 import Profile from './Profile';
 import FiresNearYou from './FiresNearYou';
-import News from './News.js';
+//import News from './News.js';
 import { useState, useEffect } from 'react';
 import {DisplayForm} from './createPost.js'
 import Resources from './Resources.js';
@@ -20,30 +20,30 @@ import PostsByUser from './UserPosts.js';
 function App() {
   //const data = SAMPLE_POST;
   const [data, setData] = useState(null);
-  const [articles, setArticles] = useState([]);
+  //const [articles, setArticles] = useState([]);
 
-  useEffect(() => {
-    const today = new Date();
-    const lastMonth = new Date(today.getFullYear(), today.getMonth() - 1, today.getDate());
+  // useEffect(() => {
+  //   const today = new Date();
+  //   const lastMonth = new Date(today.getFullYear(), today.getMonth() - 1, today.getDate());
 
     // Format the date in 'YYYY-MM-DD' format
-    const fromDate = lastMonth.toISOString().split('T')[0];
+    // const fromDate = lastMonth.toISOString().split('T')[0];
 
-    const url = `https://newsapi.org/v2/everything?` +
-            `q=fires OR "forest fires" OR wildfires&` +
-            `from=${fromDate}&` +
-            'pageSize=20&' +
-            `sortBy=publishedAt&` +
-            `domains=nationalgeographic.com,npr.org,pbs.org/newhournature.com,fs.fed.us,sciencemag.org,weather.com,mnm.com,sierraclub.org,scientificamerican.com,greenpeace.org,ecowatch.com,climatecentral.org,environmentalnewsnetwork.com,fire.ca.gov,inciweb.nwcg.gov&` + // Restrict search to these domains for high-quality, relevant articles
-            `apiKey=19026760006e40e7bc668a48612e7410`;
+    // const url = `https://newsapi.org/v2/everything?` +
+    //         `q=fires OR "forest fires" OR wildfires&` +
+    //         `from=${fromDate}&` +
+    //         'pageSize=20&' +
+    //         `sortBy=publishedAt&` +
+    //         `domains=nationalgeographic.com,npr.org,pbs.org/newhournature.com,fs.fed.us,sciencemag.org,weather.com,mnm.com,sierraclub.org,scientificamerican.com,greenpeace.org,ecowatch.com,climatecentral.org,environmentalnewsnetwork.com,fire.ca.gov,inciweb.nwcg.gov&` + // Restrict search to these domains for high-quality, relevant articles
+    //         `apiKey=19026760006e40e7bc668a48612e7410`;
 
-    fetch(url)
-      .then(response => response.json())
-      .then(data => {
-        setArticles(data.articles);
-      })
-      .catch(error => console.log('Error fetching data:', error));
-  }, []);
+  //   fetch(url)
+  //     .then(response => response.json())
+  //     .then(data => {
+  //       setArticles(data.articles);
+  //     })
+  //     .catch(error => console.log('Error fetching data:', error));
+  // }, []);
 
   return (
     <div>
@@ -61,8 +61,8 @@ function App() {
         <Route path='about' element={<About />} />
         <Route path='profile' element={<Profile />} />
         <Route path='firesnearyou' element={<FiresNearYou />} />
-        <Route path='resources' element={<Resources articles={articles}/>}>
-          <Route path='news' element={<News articles={articles}/>} />
+        <Route path='resources' element={<Resources />}>
+          {/* <Route path='news' element={<News articles={articles}/>} /> */}
           <Route path='prepare' element={<Prepare />} />
           <Route path='during' element={<During />} />
           <Route path='after' element={<AfterFire />} />
