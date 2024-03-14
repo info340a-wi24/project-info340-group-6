@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from "react";
+import { useNavigate } from "react-router-dom";
 import { getDatabase, ref, onValue, push, get } from 'firebase/database';
 
 
@@ -55,12 +56,18 @@ export default function PostsPage() {
 
 function Post(props) {
     const fire = props.fire;
+    const navigate = useNavigate();
+
+    const goHere = () => {
+        navigate(`/postByUser/${fire.id}`);
+    };
 
     return (
-        <div className="post col-sm-6 col-md-4">
+        <div className="post col-sm-6 col-md-4" onClick={goHere}>
             {/*<img className='py-1' src={process.env.PUBLIC_URL + fire.source} alt={fire.alt} />*/}
             <h2>{fire.header}</h2>
             <em>{fire.date} - {fire.coordinates}</em>
+            <p>Poster: {fire.fname} {fire.lname}</p>
             <p>{fire.content}</p>
         </div>
     )

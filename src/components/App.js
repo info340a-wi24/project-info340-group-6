@@ -13,6 +13,7 @@ import Resources from './Resources.js';
 import Prepare from './Prepare.js';
 import During from './During.js';
 import AfterFire from './AfterFire.js';
+import PostsByUser from './UserPosts.js';
 
 
 
@@ -66,6 +67,7 @@ function App() {
           <Route path='during' element={<During />} />
           <Route path='after' element={<AfterFire />} />
         </Route>
+        <Route path="/postByUser/:postId" element={<PostsByUser />} />
         <Route path='*' element={<Navigate to="/" />} />
       </Routes>
 
