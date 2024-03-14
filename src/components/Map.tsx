@@ -20,6 +20,7 @@ export default function Map() {
         }), 
         []
     );
+    const [fireData, setFireData] = useState({});
 
     const onLoad = useCallback((map)=>(mapRef.current = map), []);
     return (
@@ -52,6 +53,7 @@ export default function Map() {
                         response.json()
                     )
                     .then((data) => {
+                        setFireData(data);
                         return data;
                     })
                 });
@@ -66,9 +68,39 @@ export default function Map() {
                 options={options}
                 onLoad={onLoad}
             >
-                {ping && <Marker position={ping} />}
+                {ping && (
+                <>
+                    <Marker position={ping} />
+                    <Circle center={ping} radius={15000} options={getColor(fireData.risk50)}/>
+                </>
+                )}
             </GoogleMap>
         </div>
+        <h2>Danger Level: {fireData.riskDesc}</h2>
     </div>
     )
+}
+
+function getColor(riskLevel) {
+    if (riskLevel <= 10) {
+        return {
+            strokeColor: "#00FF00",
+            fillColor: "#00FF00"
+        };
+    } else if (riskLevel <= 20) {
+        return {
+            strokeColor: "#FFFF00",
+            fillColor: "#FFFF00"
+        };
+    } else if (riskLevel <= 30) {
+        return {
+            strokeColor: "#FFA500",
+            fillColor: "#FFA500"
+        };
+    } else {
+        return {
+            strokeColor: "#FF0000",
+            fillColor: "#FF0000"
+        };
+    }
 }
