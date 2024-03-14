@@ -48,12 +48,13 @@ function PostsByUser() {
   }
   return (
       <div className='post col-sm-6 col-md-4 mx-auto text-center'>
-          <h1>Posts By User Page</h1>
-          <p>User ID: {postId}</p>
-              <div>
+          <h1>Posts By {posts[0].fname} {posts[0].lname}</h1>
+              <div id="userPostsColumn">
                   {posts.map((post, index) => (
                       <div key={index}>
                           <h2>{post.header}</h2>
+                          <h3>{post.date}</h3>
+                          <h3>{post.coordinates}</h3>
                           <p>{post.content}</p>
                           {/* Additional post details */}
                       </div>

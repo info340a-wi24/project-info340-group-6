@@ -33,7 +33,7 @@ export function DisplayForm(){
       const snapshot = await get(userRef);
       let userData = snapshot.val();
       console.log(userData);
-      await addPost({id: userID, source: "/img/WaWildFire.jpg", fname: userData.fname, lname: userData.lname, alt: headerText, header:headerText, coordinates: userData.address, date:today , content: contentText});
+      await addPost({id: parseInt(userID), source: "/img/WaWildFire.jpg", fname: userData.fname, lname: userData.lname, alt: headerText, header:headerText, coordinates: userData.address, date:today , content: contentText});
     } catch (err) {
       console.log(err);
     }
