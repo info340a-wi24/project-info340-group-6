@@ -295,6 +295,28 @@ label {
   margin-bottom: 0.5em;
 }
 
+#aboutTextAndPhoto {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding:2em;
+}
+
+#aboutTextAndPhoto img {
+  width: 50em;
+  margin-bottom: 5em;
+  border-radius: 1rem;
+  border: 12px darkred solid;
+}
+
+#vertBox {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  border: darkred 5px solid;
+  padding:1em;
+}
+
 
 @media only screen and (max-width: 598px) {
   #hamburger-menu {

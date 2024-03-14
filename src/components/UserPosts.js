@@ -46,7 +46,6 @@ function PostsByUser() {
   if (loading) {
       return <p>Loading...</p>;
   }
-
   return (
       <div>
           <h1>Posts By User Page</h1>
