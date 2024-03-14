@@ -58,8 +58,7 @@ export default function NavBar(props) {
                             Profile
                         </NavLink>
                         <ul className="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdown">
-                            <li><NavLink className="dropdown-item" to="/Profile">Details</NavLink></li>
-                            <li><NavLink className="dropdown-item" to="/Profile/Settings">Settings</NavLink></li>
+                            <li><NavLink className="dropdown-item" to="/Profile">Settings</NavLink></li>
                             <li><hr className="dropdown-divider" /></li>
                             <li><NavLink className="dropdown-item" to="/Profile" onClick={isLoggedIn ? logOut : undefined}>{inOrOut}</NavLink></li>
                         </ul>
