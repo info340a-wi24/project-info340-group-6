@@ -1,9 +1,7 @@
 import { useState, useMemo, useCallback, useRef } from "react";
 import {GoogleMap, Marker, DirectionsRenderer, Circle, MarkerClusterer} from "@react-google-maps/api";
 import Places from "./Places.tsx";
-import Distance from "./Distance.tsx";
 import { Buffer } from "buffer";
-import { response } from "express";
 
 type LatLngLiteral = google.maps.LatLngLiteral;
 type DirectionResult = google.maps.DirectionsResult;
