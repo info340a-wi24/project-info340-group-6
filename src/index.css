@@ -254,6 +254,7 @@ label {
   padding: 1rem;
   background: darkred;
   color: #fff;
+  text-align: center;
 }
 
 .combobox-input {

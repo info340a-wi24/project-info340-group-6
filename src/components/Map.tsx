@@ -2,6 +2,8 @@ import { useState, useMemo, useCallback, useRef } from "react";
 import {GoogleMap, Marker, DirectionsRenderer, Circle, MarkerClusterer} from "@react-google-maps/api";
 import Places from "./Places.tsx";
 import Distance from "./Distance.tsx";
+import { Buffer } from "buffer";
+import { response } from "express";
 
 type LatLngLiteral = google.maps.LatLngLiteral;
 type DirectionResult = google.maps.DirectionsResult;
@@ -18,6 +20,35 @@ export default function Map() {
         }), 
         []
     );
+
+    fetch("https://api.precisely.com/oauth/token", {
+        method: 'post',
+        body: 'grant_type=client_credentials',
+        headers : new Headers ({
+            'Authorization': 'Basic ' + Buffer.from('fo1ybRYY76gAkQliA0YxuhUxfbSOysuP:kWh4N18yA4t8WNYQ').toString("base64"),
+            'Content-Type': 'application/x-www-form-urlencoded/e2ZvMXliUllZNzZnQWtRbGlBMFl4dWhVeGZiU095c3VQfTp7a1doNE4xOHlBNHQ4V05ZUX0='
+        }) 
+    })
+    .then((response) => 
+        response.json()
+    )
+    .then((data) => {
+        console.log(data);
+        return fetch("https://api.precisely.com/risks/v2/fire/byaddress?address=" + ping + "&includeGeometry=N",{
+            method: 'GET',
+            headers : {
+                'Authorization': `Bearer ${data.access_token}`
+            } 
+        })
+        .then((response) =>
+            response.json()
+        )
+        .then((data) => {
+            console.log(data);
+            return data;
+        })
+    });
+
     const onLoad = useCallback((map)=>(mapRef.current = map), []);
     return (
     <div className="container"> 
