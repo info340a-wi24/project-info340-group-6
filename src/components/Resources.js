@@ -17,9 +17,8 @@ export default function Resources(props) {
         </div>
         <div className='col-md-6'>
           <Carousel>
-            {carouselItem()}
+            {carouselPrepare()}
           </Carousel>
-          {carouselPrepare()}
         </div>
         <div className='col-md-6'>
           {carouselDuring()}
@@ -42,9 +41,11 @@ function carouselArticle(article) {
         alt={article.title}
       />
       <Carousel.Caption className="caption-background">
-        <h3>{article.title}</h3>
+        <h3 className='carousel-title'>News Articles</h3>
+        <br/>
+        <h4>{article.title}</h4>
         <p>{article.description}</p>
-        <a href={article.url} target="_blank" rel="noopener noreferrer" className="btn btn-primary">Read More</a>
+        <a href={article.url} target="_blank" rel="noopener noreferrer" className="btn btn-primary pr-2">Read More</a>
         <NavLink to="news" className="btn btn-primary">More Articles</NavLink>
       </Carousel.Caption>
     </Carousel.Item>

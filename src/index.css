@@ -261,6 +261,25 @@ label {
   padding: .5rem;
 }
 
+.carousel-item {
+  margin-right: 15px;
+  height: 400px;
+  border-radius: 15px;
+}
+
+.carousel-item img {
+  height: 100%;
+  object-fit: cover;
+  border-radius: 15px;
+}
+
+.carousel-title {
+  top: 0;
+  width: 100%;
+  text-align: center;
+}
+
+
 @media only screen and (max-width: 598px) {
   #hamburger-menu {
     margin: 10px;
