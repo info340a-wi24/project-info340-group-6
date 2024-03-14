@@ -42,7 +42,6 @@ export default function Map() {
                     response.json()
                 )
                 .then((data) => {
-                    console.log(data);
                     return fetch(`https://api.precisely.com/risks/v2/fire/bylocation?latitude=${position.lat}&longitude=${position.lng}&includeGeometry=N`,{
                         method: 'GET',
                         headers : {
@@ -53,7 +52,6 @@ export default function Map() {
                         response.json()
                     )
                     .then((data) => {
-                        console.log(data);
                         return data;
                     })
                 });
