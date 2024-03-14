@@ -47,7 +47,7 @@ function PostsByUser() {
       return <p>Loading...</p>;
   }
   return (
-      <div>
+      <div className='text-center'>
           <h1>Posts By User Page</h1>
           <p>User ID: {postId}</p>
               <div>
