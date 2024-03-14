@@ -3,16 +3,16 @@ import { Carousel } from 'react-bootstrap';
 import { NavLink, Outlet } from 'react-router-dom';
 
 export default function Resources(props) {
-  // const articles = props.articles.slice(0,3);
-  // const arrArticles = articles.map( (article) => carouselArticle(article));
+  const articles = props.articles.slice(0,3);
+  const arrArticles = articles.map( (article) => carouselArticle(article));
   return (
     <div className='container'>
       <div className='row justify-content-center'>
-        {/* <div className='col-md-6'>
+        <div className='col-md-6'>
           <Carousel>
             {arrArticles}
           </Carousel>
-        </div> */}
+        </div>
         <div className='col-md-6'>
           {carouselPrepare()}
         </div>
