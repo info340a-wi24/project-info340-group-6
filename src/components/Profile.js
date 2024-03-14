@@ -39,7 +39,7 @@ export default function Profile(props) {
             localStorage.setItem('lname', formData.lname);
             localStorage.setItem('address', formData.address);
             localStorage.setItem('state', formData.address);
-            localStorage.setItem('phone')
+            localStorage.setItem('phone', formData.state)
             setFormData({
                 fname: "",
                 mname: "",
